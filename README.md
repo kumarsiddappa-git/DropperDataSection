@@ -103,3 +103,66 @@ We can find more detailed information in the link [CreateThread](https://learn.m
 Now lets start to understand how it works using the debugger x64dbg
 
 The code which is attached in the post is which you can compile using gcc and create a obj and exe file , Once the exe file is created follow the steps
+
+1. Once you execute the code you would be seeing the address
+
+   ![image](https://github.com/user-attachments/assets/1fdc35a0-3b1b-4333-84c7-814cf218d29f)
+
+   Copy it and save it on the notepad
+
+   payload addr         : 0x00007FF7DE0BD000
+   exec_mem addr        : 0x0000020E7F2B0000
+
+2.  Now lets launch my favourite tool x64dbg and see the payload details
+
+    Click on the Attach, which attaches the running exe file to the debugger
+
+    ![image](https://github.com/user-attachments/assets/5e5ea275-648a-4225-9a92-24761b47173d)
+
+3. Once clicked select the code or exe which is being executed or name of our exe file
+
+   ![image](https://github.com/user-attachments/assets/69bbe6e3-98d6-4d91-a1e5-cd63709abae7)
+
+4.  After the running exe is attached, Now we can see the x64dbg is in Paused state so we need to run the debugger by clicking on run and watch the state moves form Paused to 	    Running.
+
+   ![image](https://github.com/user-attachments/assets/95ae35c6-29e0-446f-b984-31b1882d0dfb)
+
+5. Now lets go to the terminal where we ran the exe file, which is waiting for our input press Enter key. Once Enter the debugger stops at the INT3 op code which we have in 	   our payload as the screnshot
+
+   ![image](https://github.com/user-attachments/assets/0c1ce261-92b0-4c21-9405-fa899cc27082)
+
+   In the above image we can see the payload we had in our code is being shown , The sample payload being used in the code is being pasted here
+
+		unsigned char payload[] = {  
+				0x40,		// INC EAX  
+				0x90,		// NOP  
+				0xcc,		// INT3  
+				0xc3		// RET  
+			};
+
+   Now our main objective is to find where the payload is stored and which sections we can see them.
+
+   Steps
+
+    1. Got to Memory Map Tab and right click on empty space and select Find Patterns
+
+   ![image](https://github.com/user-attachments/assets/a62069c7-a0b4-4f7e-93aa-747bcc35f192)
+
+    2. Type the payload in the below format and click on Entire block, which is equal to find whole word ...
+
+   ![image](https://github.com/user-attachments/assets/1bd39c83-137f-4d19-9630-e96213dd79df)
+
+    3. We will get the address where the pattern or payload is saved
+
+![image](https://github.com/user-attachments/assets/ad5f3f7b-8068-4649-be1e-545b3a142ed7)
+
+
+
+
+
+
+
+
+
+   
+
