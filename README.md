@@ -183,6 +183,9 @@ The code which is attached in the post is which you can compile using gcc and cr
 
  For more information on Section .text , please visit [.text](https://github.com/kumarsiddappa-git/Dropper)
 
+ @sektor7 learning
+ 
+
 
 
 
