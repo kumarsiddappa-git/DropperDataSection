@@ -156,6 +156,40 @@ The code which is attached in the post is which you can compile using gcc and cr
 
 ![image](https://github.com/user-attachments/assets/ad5f3f7b-8068-4649-be1e-545b3a142ed7)
 
+    4. we will select, right click and copy the Cropped Table
+
+    ![image](https://github.com/user-attachments/assets/cd67adb6-3802-45a4-aacb-ec7e26dd8c60)
+
+    		
+    5. Now lets start comparing them in the Memory map 
+    		Address           Data                                                                                                                                                               
+		0000020E7F2B0000  40 90 CC C3
+		00007FF7DE0BD000  40 90 CC C3
+
+  	1. Pasted all the details in he same screenshot 
+![image](https://github.com/user-attachments/assets/832fa6fb-9c22-4d1c-b34c-7810c5300bec)
+
+  	2. Now we are considering the first address 0000020E7F2B0000 and we will find out where it being saved or stored , here we can see the Priv which means the 
+                   exec memory is stored here and also initial it was RW (read write) and now its ER which is Execute Read(to avoid triggering as issue from EDR)
+
+![image](https://github.com/user-attachments/assets/956494ee-ceda-4a05-84ea-eb19324d1e5d)
+
+	3. Now if we check the second address where it falls , it falls under the section .data which means anything stored or decalred as variables outside main function or 
+        any function are saved in .data 
+
+ ![image](https://github.com/user-attachments/assets/8c0574d6-85f3-4015-ac89-9403bada607f)
+
+
+
+ For more information on Section .text , please visit [.text](https://github.com/kumarsiddappa-git/Dropper)
+
+
+
+
+
+     
+
+
 
 
 
